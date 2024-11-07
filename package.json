@@ -1,0 +1,62 @@
+{
+  "name": "week-12-si",
+  "version": "0.0.1",
+  "description": "week12SI",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "18 || 20 || 22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo && rimraf .eslintcache",
+    "lint": "npm run prettier:check",
+    "lint:fix": "npm run prettier:fix",
+    "prettier:cli": "prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "pretest": "npm run rebuild",
+    "posttest": "npm run lint",
+    "openapi-spec": "node ./dist/openapi-spec",
+    "prestart": "npm run rebuild",
+    "start": "node -r source-map-support/register .",
+    "prepare": "npm run build",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "gayathri <g3kaparthi@gmail.com>",
+  "license": "",
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "dependencies": {
+    "@loopback/boot": "^7.0.7",
+    "@loopback/core": "^6.1.4",
+    "@loopback/repository": "^7.0.7",
+    "@loopback/rest": "^14.0.7",
+    "@loopback/rest-explorer": "^7.0.7",
+    "@loopback/service-proxy": "^7.0.7",
+    "loopback-connector-mysql": "^7.0.15",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@loopback/testlab": "^7.0.6",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^16.18.101",
+    "mocha": "^10.2.0",
+    "prettier": "^3.3.2",
+    "rimraf": "^5.0.7",
+    "source-map-support": "^0.5.21",
+    "typescript": "~5.2.2"
+  }
+}
